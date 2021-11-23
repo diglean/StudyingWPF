@@ -13,25 +13,35 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp10___DataContext
+namespace WpfApp11___DataTemplates
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Person obj { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new Person()
-            {
-                FirstName = "John",
-                LastName = "Smith",
-                Age = 30
-            };
+            
+            obj = new Person();
 
-            //DataContext is saved into obj
-            //Always set DataContext
+            obj.Name = "Jon Snow";
+
+            this.DataContext = this;
         }
     }
+
+    public class Person 
+    {
+        public string Name { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return "" + Name;
+        //}
+    }
+
+    
 }
